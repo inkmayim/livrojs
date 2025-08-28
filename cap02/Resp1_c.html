@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Supermercado JS</title>
+	</head>
+	<body>
+		<h1>Supermercado JS</h1>
+		<p>
+			<label for="produto">Produto:</label>
+			<input type="text" id="produto" required />
+		</p>
+		<p>
+			<label for="preco">Preço:</label>
+			<input type="number" id="preco" step="0.01" required />
+		</p>
+		<p>
+			<button onclick="mostrarPromocao()">Mostrar Promoção</button>
+		</p>
+		<h3 id="promocaoTitulo"></h3>
+		<p id="promocaoDetalhe"></p>
+		<script>
+			function mostrarPromocao() {
+				const inProduto = document.getElementById('produto')
+				const inPreco = document.getElementById('preco')
+				const outPromocaoTitulo = document.getElementById('promocaoTitulo')
+				const outPromocaoDetalhe = document.getElementById('promocaoDetalhe')
+
+				const produto = inProduto.value
+				const preco = Number(inPreco.value)
+
+				if (produto === '' || preco === 0 || isNaN(preco)) {
+					alert('Por favor, preencha corretamente os dados do produto.')
+					inProduto.focus()
+					return
+				}
+
+				const precoPromocao = preco * 2 + preco / 2
+
+				outPromocaoTitulo.textContent = `Promoção de ${produto}`
+				outPromocaoDetalhe.textContent = `Leve 3 Pague 2 e meio R$ ${precoPromocao.toFixed(
+					2
+				)}`
+			}
+		</script>
+	</body>
+</html>

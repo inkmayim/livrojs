@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lan House</title>
+	</head>
+	<body>
+		<h1>Lan House JS</h1>
+		<p>
+			<label for="ValorQuinzeMinutos">Valor por 15 minutos (R$):</label>
+			<input type="number" id="ValorQuinzeMinutos" step="0.01" />
+		</p>
+		<p>
+			<label for=" tempoUso">Tempo de uso (minutos):</label>
+			<input type="number" id=" tempoUso" />
+		</p>
+		<p>
+			<button onclick="calcularValor()">Calcular Valor</button>
+		</p>
+		<h3 id="valorPagar"></h3>
+		<script>
+			function calcularValor() {
+				const inValorQuinzeMinutos =
+					document.getElementById('ValorQuinzeMinutos')
+				const inTempoUso = document.getElementById(' tempoUso')
+				const outValorPagar = document.getElementById('valorPagar')
+
+				const valorQuinzeMinutos = Number(inValorQuinzeMinutos.value)
+				const tempoUso = Number(inTempoUso.value)
+
+				if (
+					valorQuinzeMinutos <= 0 ||
+					isNaN(valorQuinzeMinutos) ||
+					tempoUso <= 0 ||
+					isNaN(tempoUso)
+				) {
+					alert('Por favor, preencha corretamente os dados.')
+					inValorQuinzeMinutos.focus()
+					return
+				}
+				const numFracoes = Math.ceil(tempoUso / 15)
+				const valorTotal = (numFracoes * valorQuinzeMinutos).toFixed(2)
+				outValorPagar.textContent = `Valor a pagar: R$ ${valorTotal}`
+			}
+		</script>
+	</body>
+</html>

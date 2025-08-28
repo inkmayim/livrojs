@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Farmácia JS</title>
+	</head>
+	<body>
+		<h1>Farmácia JS</h1>
+
+		<p>
+			<label for="medicamento">Medicamento:</label>
+			<input type="text" id="medicamento" required />
+		</p>
+		<p>
+			<label for="preco">Preço:</label>
+			<input type="number" id="preco" step="0.01" required />
+		</p>
+		<p>
+			<button onclick="mostrarPromocao()">Mostrar Promoção</button>
+		</p>
+		<h3 id="promocaoTitulo"></h3>
+		<p id="promocaoDetalhes"></p>
+		<script>
+			function mostrarPromocao() {
+				const inMedicamento = document.getElementById('medicamento')
+				const inPreco = document.getElementById('preco')
+				const outPromocaoTitulo = document.getElementById('promocaoTitulo')
+				const outPromocaoDetalhe = document.getElementById('promocaoDetalhes')
+				const medicamento = inMedicamento.value
+				const preco = Number(inPreco.value)
+				if (medicamento === '' || preco === 0 || isNaN(preco)) {
+					alert('Por favor, preencha corretamente os dados do medicamento.')
+					inMedicamento.focus()
+					return
+				}
+				const precoDuasUnidades = (preco * 2).toFixed(2)
+				const precoPromocao = math.floor(precoDuasUnidades)
+				outPromocaoTitulo.textContent = `Promoção de ${medicamento}`
+				outPromocaoDetalhe.textContent = `Leve 2 por apenas R$ ${precoPromocao.toFixed(
+					2
+				)}`
+			}
+		</script>
+	</body>
+</html>

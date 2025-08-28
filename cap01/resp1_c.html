@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cap. 1 - Resposta Exercício C</title>
+	</head>
+	<body>
+		<script>
+			let precoProduto = Number(prompt('Digite o preço do produto:'))
+			let precoVista = precoProduto * 0.9 // Aplicando 10% de desconto
+			let produtoParcelado3x = precoProduto / 3 // Preço parcelado em 3 vezes
+			alert(
+				`Preço do produto: R$${precoProduto.toFixed(2)}\n` +
+					`Preço à vista (10% de desconto): R$${precoVista.toFixed(2)}\n` +
+					`Preço parcelado em 3x: R$${produtoParcelado3x.toFixed(2)}`
+			)
+			console.log(`Preço do produto: R$${precoProduto.toFixed(2)}`)
+			console.log(`Preço à vista (10% de desconto): R$${precoVista.toFixed(2)}`)
+			console.log(`Preço parcelado em 3x: R$${produtoParcelado3x.toFixed(2)}`)
+		</script>
+	</body>
+</html>
